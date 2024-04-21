@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Menu Navigasi dengan jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            #menu {
+                display: none; 
+            }
+
+            #menu li {
+                list-style: none; 
+                margin: 0 10px; 
+            }
+
+            #menu a {
+                text-decoration: none;
+                color: black; 
+            }
+        </style>
+    </head>
+    <body>
+        <button id="tombol-menu">Menu</button>
+        <ul id="menu">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+
+    <script>
+        $(document).ready(function() {
+            $("#menu").hide();
+
+            $("#tombol-menu").click(function() {
+                $("#menu").toggle();
+            });
+        });
+  </script>
+</body>
+</html>

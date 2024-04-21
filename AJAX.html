@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Memuat Konten dengan jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <button id="tombol-muat">Muat Konten</button>
+        <div id="konten-container"></div>
+
+    <script>
+        $(document).ready(function() {
+        $("#tombol-muat").click(function() {
+            $.ajax({
+            url: "InputData.html",
+            success: function(data) {
+                $("#konten-container").html(data);
+            }
+            });
+        });
+        });
+  </script>
+</body>
+</html>

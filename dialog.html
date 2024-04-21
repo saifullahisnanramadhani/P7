@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Jendela Dialog dengan jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            /* Gaya CSS untuk dialog */
+            #dialog {
+                display: none; /* Sembunyikan dialog pada awalnya */
+                position: fixed; /* Posisikan dialog secara absolut */
+                top: 50%; /* Posisikan di tengah vertikal */
+                left: 50%; /* Posisikan di tengah horizontal */
+                transform: translate(-50%, -50%); /* Pusatkan konten dialog */
+                background-color: rgb(227, 202, 90); /* Warna latar belakang dialog */
+                border: 1px solid black; /* Batas dialog */
+                padding: 20px; /* Jarak antar elemen dalam dialog */
+            }
+
+            #dialog-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            #dialog-content {
+                margin-bottom: 20px;
+            }
+
+            #dialog-button-container {
+                text-align: right;
+            }
+
+            #dialog-button-close {
+                padding: 5px 10px;
+                border: 1px solid black;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="tombol-buka-dialog">Buka Dialog</button>
+        <div id="dialog">
+            <div id="dialog-header">Judul Dialog</div>
+            <div id="dialog-content">Konten</div>
+            <div id="dialog-button-container">
+                <button id="dialog-button-close">Tutup</button>
+            </div>
+        </div>
+
+    <script>
+        $(document).ready(function() {
+            // Sembunyikan dialog pada awalnya
+            $("#dialog").hide();
+
+            // Tampilkan dialog saat tombol diklik
+            $("#tombol-buka-dialog").click(function() {
+                $("#dialog").show();
+        });
+
+            // Tutup dialog saat tombol "Tutup" diklik
+            $("#dialog-button-close").click(function() {
+                $("#dialog").hide();
+            });
+        });
+    </script>
+    </body>
+</html>

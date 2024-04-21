@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Dialog Download dengan Progress Bar</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            /* Gaya CSS untuk dialog */
+            #dialog {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgb(63, 93, 99);
+                border: 1px solid black;
+                padding: 20px;
+            }
+
+            #dialog-header {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            #dialog-content {
+                margin-bottom: 20px;
+            }
+
+            #progress-bar {
+                width: 100%;
+                height: 20px;
+                background-color: #ccc;
+                border: 1px solid #ddd;
+                padding: 5px;
+            }
+
+            #progress-bar-fill {
+                width: 0%;
+                height: 100%;
+                background-color: #007bff;
+            }
+
+            #dialog-button-container {
+                text-align: right;
+            }
+
+            #dialog-button-close {
+                padding: 5px 10px;
+                border: 1px solid black;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="tombol-buka-dialog">Mulai Download</button>
+        <div id="dialog">
+            <div id="dialog-header">Judul Download</div>
+            <div id="dialog-content">
+                <p>Mengunduh file...</p>
+                    <div id="progress-bar">
+                     <div id="progress-bar-fill"></div>
+                    </div>
+            </div>
+            <div id="dialog-button-container">
+            <button id="dialog-button-close">Batal</button>
+            </div>
+        </div>
+
+    <script>
+        $(document).ready(function() {
+        
+            $("#dialog").hide();
+
+       
+        $("#tombol-buka-dialog").click(function() {
+            $("#dialog").show();
+
+       
+            var progress = 0;
+            var intervalId = setInterval(function() {
+                progress += Math.random() * 0.1; 
+                progress = Math.min(progress, 1); 
+
+            $("#progress-bar-fill").css("width", progress * 100 + "%");
+
+                if (progress === 1) {
+                    clearInterval(intervalId);
+                        alert("Download selesai!");
+                            $("#dialog").hide(); 
+                }
+            }, 100);
+        });
+
+        
+        $("#dialog-button-close").click(function() {
+            $("#dialog").hide();
+            });
+        });
+  </script>
+</body>
+</html>
